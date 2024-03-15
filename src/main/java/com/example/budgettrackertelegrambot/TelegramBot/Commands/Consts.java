@@ -11,6 +11,9 @@ public enum Consts {
             "📈 To add income, use /income.\n" +
             "💰 To view your current balance, use /balance.\n\n" +
             "Let's start tracking your budget! 💳"),
+    BALANCE_MESSAGE("💰 Your Current Balance 💰\n\n" +
+            "Your current balance is: %s\n\n" +
+            "Keep tracking your finances with Budget Tracker Bot! 💳"),
     UNKNOWN_COMMAND("Error, i dont know this command!");
     private final String text;
     Consts(String text){

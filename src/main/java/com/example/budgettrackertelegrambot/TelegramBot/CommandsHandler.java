@@ -1,5 +1,6 @@
 package com.example.budgettrackertelegrambot.TelegramBot;
 
+import com.example.budgettrackertelegrambot.TelegramBot.Commands.BalanceCommand;
 import com.example.budgettrackertelegrambot.TelegramBot.Commands.Command;
 import com.example.budgettrackertelegrambot.TelegramBot.Commands.StartCommand;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,11 @@ import java.util.Map;
 @Component
 public class CommandsHandler {
     private final Map<String , Command> commands;
-    public CommandsHandler(@Autowired StartCommand startCommand) {
+    public CommandsHandler(@Autowired StartCommand startCommand,
+                           @Autowired BalanceCommand balanceCommand) {
         this.commands = Map.of(
-                "/start", startCommand
+                "/start", startCommand,
+                "/balance",balanceCommand
         );
     }
     public SendMessage handleCommand(Update update){
