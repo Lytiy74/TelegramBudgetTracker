@@ -1,8 +1,10 @@
 package com.example.budgettrackertelegrambot.TelegramBot.Commands;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public enum Consts {
     START_MESSAGE("📊 Welcome to Budget Tracker Bot! 📊\n\n" +
             "This bot helps you track your finances. You can monitor your expenses and income, and stay on top of your budget.\n\n" +
@@ -18,9 +20,5 @@ public enum Consts {
     private final String text;
     Consts(String text){
         this.text = text;
-    }
-    @Override
-    public String toString() {
-        return super.toString();
     }
 }

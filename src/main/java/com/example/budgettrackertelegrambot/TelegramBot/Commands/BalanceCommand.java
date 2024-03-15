@@ -13,7 +13,7 @@ import java.util.List;
 public class BalanceCommand implements Command {
     @Override
     public SendMessage apply(Update update) {
-        long chatId = update.getMessage().getChatId();
+        long chatId = update.getCallbackQuery().getMessage().getChatId();
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(String.valueOf(chatId));
         sendMessage.setText(String.format(Consts.BALANCE_MESSAGE.getText(),500));

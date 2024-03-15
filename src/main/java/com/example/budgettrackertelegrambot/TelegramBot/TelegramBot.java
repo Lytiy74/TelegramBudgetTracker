@@ -12,12 +12,10 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class TelegramBot extends TelegramLongPollingBot {
     private final CommandsHandler commandsHandler;
-    private final CallbackHandler CallbackHandler;
     private final BotConfig botConfig;
     @Autowired
-    public TelegramBot(CommandsHandler commandsHandler, CallbackHandler callbackHandler, BotConfig botConfig){
-        this.commandsHandler = commandsHandler;
-        this.CallbackHandler = callbackHandler;
+    public TelegramBot(CommandsHandler commandsHandler, BotConfig botConfig){
+        this.commandsHandler = commandsHandler;;
         this.botConfig = botConfig;
 
     }
@@ -40,7 +38,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             }
             commandsHandler.handleCommand(update);
         } else if (update.hasCallbackQuery()){
-            CallbackHandler.recieveCallback(update);
+            sendMessage(commandsHandler.handleCallback(update));
         }
     }
     private void sendMessage(SendMessage sendMessage){

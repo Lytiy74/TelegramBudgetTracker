@@ -1,5 +1,6 @@
 package com.example.budgettrackertelegrambot.TelegramBot.Commands;
 
+import com.example.budgettrackertelegrambot.TelegramBot.CallbackType;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -28,15 +29,15 @@ public class StartCommand implements Command {
         List<InlineKeyboardButton> keyboardButtonsRow2 = new ArrayList<>();
         InlineKeyboardButton expenseButton = new InlineKeyboardButton();
         expenseButton.setText("📉 add an expense");
-        expenseButton.setCallbackData("SET_EXPENSE");
+        expenseButton.setCallbackData(CallbackType.EXPOSE.getType());
         keyboardButtonsRow1.add(expenseButton);
         InlineKeyboardButton incomeButton = new InlineKeyboardButton();
         incomeButton.setText("📈 add income");
-        incomeButton.setCallbackData("SET_INCOME");
+        incomeButton.setCallbackData(CallbackType.INCOME.getType());
         keyboardButtonsRow1.add(incomeButton);
         InlineKeyboardButton balanceButton = new InlineKeyboardButton();
         balanceButton.setText("💰 current balance");
-        balanceButton.setCallbackData("VIEW_BALANCE");
+        balanceButton.setCallbackData(CallbackType.BALANCE.getType());
         keyboardButtonsRow2.add(balanceButton);
 
         List<List<InlineKeyboardButton>> rowList = new ArrayList<>();

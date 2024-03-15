@@ -29,4 +29,12 @@ public class CommandsHandler {
             return new SendMessage(String.valueOf(update.getMessage().getChatId()), Consts.UNKNOWN_COMMAND.getText());
         }
     }
+    public SendMessage handleCallback(Update update){
+        var commandsHandler = commands.get(update.getCallbackQuery().getData());
+        if (commandsHandler != null){
+            return commandsHandler.apply(update);
+        } else {
+            return new SendMessage(String.valueOf(update.getCallbackQuery().getMessage().getChatId()), Consts.UNKNOWN_COMMAND.getText());
+        }
+    }
 }
